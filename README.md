@@ -1,4 +1,4 @@
-# PA_Biblioteca_93246_99197
+
 
 
 Biblioteca de Manipulação de XML
@@ -180,8 +180,9 @@ O resultado será o seguinte:
 </FUC>
 ```
 
-Contribuições
+
 -------------
+# PA_Biblioteca_93246_99197
 Trabalho de Programação Avançada realizado por:
 * João Freire, nº93246
 * Luís Fraga, nº99197
