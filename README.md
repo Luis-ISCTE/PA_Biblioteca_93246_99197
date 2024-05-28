@@ -41,6 +41,15 @@ Funcionalidades
     *   Converter objetos em entidades(tags) do formato XML.
  
 
+
+   
+
+        
+    
+
+Utilização
+----------
+
 ### Pré-requisitos
 
 *   Kotlin 1.4 ou superior
@@ -55,13 +64,6 @@ import java.io.File
 import kotlin.reflect.full.*
 import kotlin.reflect.full.memberProperties
 ```
-   
-
-        
-    
-
-Utilização
-----------
 ### Manipulação das entidades do ficheiro XML
 O ficehiro XML será composto por entidades representadas pelos objetos XMLTags. Estes teram como elemntos uma lista que representa as entidades filhas e um map que representa os atributos que a entidade possui. Esta classe tem funções que adicionam, removem e alteram entidades filhas, atributos e o texto aninhado, assim como escrever o objeto em formato XML. Este objetos podem ser manipulados da seguinte forma:
 
