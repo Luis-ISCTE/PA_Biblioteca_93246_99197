@@ -1,13 +1,16 @@
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-data class ComponenteAvaliacao( @Attribute val nome: String, @Attribute @XMLString(AddPercentage::class) val peso: Int) {
+data class ComponenteAvaliacao( @Attribute val nome: String,
+                                @Attribute @XMLString(AddPercentage::class) val peso: Int) {
 
 }
 
-
-class FUC(@Attribute val codigo: String, @TagChild val nome: String, @TagChild val etc: String, val obsevacoes: String, @ListOfObjects val avaliaçao: List<ComponenteAvaliacao>) {
-
+class FUC(@Attribute val codigo: String,
+          @TagChild val nome: String,
+          @TagChild val etc: String,
+          val obsevacoes: String,
+          @ListOfObjects val avaliaçao: List<ComponenteAvaliacao>) {
 }
 
 
@@ -216,8 +219,6 @@ class PA{
         val etcs = XMLTags("ects")
         val avaliacao = XMLTags("avaliacao")
         val componente= XMLTags("componente")
-        val componente2= XMLTags("componente")
-        val componente3= XMLTags("componente")
         val cadeira = XMLTags("cadeira")
         val professor = XMLTags("professor")
 
@@ -264,8 +265,6 @@ class PA{
         val etcs = XMLTags("ects")
         val avaliacao = XMLTags("avaliacao")
         val componente= XMLTags("componente")
-        val componente2= XMLTags("componente")
-        val componente3= XMLTags("componente")
         val cadeira = XMLTags("cadeira")
         val professor = XMLTags("professor")
 
@@ -315,8 +314,6 @@ class PA{
         val etcs = XMLTags("etcs")
         val avaliacao = XMLTags("avaliacao")
         val componente= XMLTags("componente")
-        val componente2= XMLTags("componente")
-        val componente3= XMLTags("componente")
         val cadeira = XMLTags("cadeira")
         val professor = XMLTags("professor")
 
@@ -384,6 +381,9 @@ class PA{
         println(tag.prettyPrint())
 
     }
+
+
+
 
 
 }
