@@ -3,22 +3,36 @@ import java.io.File
 import kotlin.reflect.full.*
 import kotlin.reflect.full.memberProperties
 
+//A anotação é utilizada quando queremos que um elemnto de um objeto seja adicionado à tag deste, como atributo
 @Target(AnnotationTarget.PROPERTY)
-annotation class Attribute()
+annotation class Attribute
 
+//A anotação indica que o argumento será uma tag filha da tag do objeto
 @Target(AnnotationTarget.PROPERTY)
-annotation class TagChild()
+annotation class TagChild
 
+//A anotação é usada quando o argumento é uma lista de objetos,
+// assim volta a chamar a função translate em cada um dos objetos
 @Target(AnnotationTarget.PROPERTY)
 annotation class ListOfObjects
 
+//Usada para transformar um argumento numa stirng percentual
 @Target(AnnotationTarget.PROPERTY)
 annotation class XMLString( val value : KClass<out AddPercentage>)
+
+//USada para adicionar texto à tag do objeto
+@Target(AnnotationTarget.CLASS)
+annotation class Text( val value : String)
 
 
 fun translate(o: Any) : XMLTags {
     val clazz = o::class
+
+
     val tag = XMLTags(clazz.simpleName.toString())
+    if (clazz.hasAnnotation<Text>()){
+        tag.addText(clazz.findAnnotation<Text>()!!.value)
+    }
     clazz.memberProperties.forEach {
         when {
             it.hasAnnotation<XMLString>() ->{
@@ -44,6 +58,7 @@ fun translate(o: Any) : XMLTags {
                 list.forEach { i -> childTag.addChild(translate(i!!)) }
                 tag.addChild(childTag)
             }
+
         }
     }
     return tag
@@ -238,8 +253,12 @@ class XMLTags(var name: String) {
     var text: String? = null
 
     fun addChild(child: XMLTags) {
-        children.add(child)
-        child.mom = this
+        if (children.contains(child) || child.mom!=null)
+            println("Esta entidade já faz parte do ficheiro")
+        else {
+            children.add(child)
+            child.mom = this
+        }
     }
 
     //retira a entidade child dos filhos desta tag, e retira todas os filhos da entidade child recursivamente
