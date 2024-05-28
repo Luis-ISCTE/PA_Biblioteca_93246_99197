@@ -1,5 +1,5 @@
 # PA_Biblioteca_93246_99197
-Trabalho de: João Freire nº93246, Luís Fraga nº99197
+
 
 Biblioteca de Manipulação de XML
 ================================
@@ -21,6 +21,8 @@ Funcionalidades
     *   @ListOfObjects - Marca um elemnto composto por uma lista de objetos, cada um dos quais será traduzido para XML.
         
     *   @XMLString - Marca um elemento para ser alterado para um sufixo de percentagem.
+ 
+    *   @Text (value:String) - Adciona texto à entidade do objeto
 
     
         
@@ -137,7 +139,7 @@ O resultado originado será:
 
 ### Traduzir Objetos para XML
 
-Defina as suas classes através de anotações da seguinte forma :
+É possivel defenor classes através de anotações de forma a que seja criada uma parcela do documento XML, da seguinte forma :
 
 ```kotlin
 class ComponenteAvaliacao( @Attribute val nome: String,
@@ -180,4 +182,6 @@ O resultado será o seguinte:
 
 Contribuições
 -------------
-
+Trabalho de Programação Avançada realizado por:
+* João Freire, nº93246
+* Luís Fraga, nº99197
